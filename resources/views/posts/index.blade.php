@@ -44,6 +44,7 @@
 			<div class="container">
 			<br>
 			<div class="row justify-content-md-center">
+				@include('partials._messages')
 				<div class="col-md-10">
 					<h1>All Posts</h1>
 				</div>
@@ -71,7 +72,11 @@
 									<td>{{$post->title}}</td>
 									<td>{{substr($post->body,0,50)}}{{ strlen($post->body) > 50 ? "..." : ""}}</td>
 									<td>{{date('M j, Y', strtotime($post->created_at))}}</td>
-									<td><a href="{{route('posts.show', $post->id)}}" class="btn btn-default btn-sm">View</a><a href="{{route('posts.edit', $post->id)}}" class="btn btn-default btn-sm">Edit</a></td>
+									<td><a href="{{route('posts.show', $post->id)}}" class="btn btn-default btn-sm">View</a><a href="{{route('posts.edit', $post->id)}}" class="btn btn-default btn-sm">Edit</a>{!! Form::open(['route' => ['posts.destroy',$post->id], 'method'=>'delete']) !!}
+
+                {!!Form::submit('Delete',array('class' => ' btn btn-danger btn-sm'))!!}
+                
+                {!! Form::close() !!}</td>
 								</tr>
 							@endforeach
 						</tbody>
