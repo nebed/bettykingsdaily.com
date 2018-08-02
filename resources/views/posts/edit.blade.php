@@ -30,6 +30,8 @@
                 </h1>
                 <ul class="s-content__header-meta">
                     <li class="date">{{date('F j, Y g:ia',strtotime($post->created_at))}}</li>
+                    <li class="cat">{{ Form::label('slug', 'URL:') }}
+                    {{ Form::text('slug', null, ["class" => 'form--control']) }}</li>
                     <li class="cat">
                         In
                         <a href="#0">Lifestyle</a>

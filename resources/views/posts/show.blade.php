@@ -107,6 +107,7 @@
                 </h1>
                 <ul class="s-content__header-meta">
                     <li class="date">{{date('F j, Y g:ia',strtotime($post->created_at))}}</li>
+                    <li class="cat"><a href="{{ url($post->slug) }}">{{ url($post->slug) }}</a></li>
                     <li class="cat">
                         In
                         <a href="#0">Lifestyle</a>
@@ -183,7 +184,7 @@
                 {!! Form::open(['route' => ['posts.destroy',$post->id], 'method'=>'delete']) !!}
 
                 {!!Form::submit('Delete Post',array('class' => 'submit btn btn--danger btn--primary btn--medium full-width'))!!}
-                
+
                 {!! Form::close() !!}
                 <p class="s-content__tags">
                     <span>Post Tags</span>

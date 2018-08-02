@@ -58,7 +58,9 @@
 
 					{!! Form::open(['route' => 'posts.store']) !!}
 					{{Form::label('title','Title:')}}
-					{{Form::text('title',null,array('class'=>'form-control'))}}
+					{{Form::text('title',null,array('class'=>'form-control','required' => 'yes'))}}
+					{{Form::label('slug','URL:')}}
+					{{Form::text('slug',null,array('class'=>'form-control','required' => 'yes','min-length'=>'5', 'max-length'=>'70'))}}
 					{{Form::label('body','Post Body:')}}
 					{{Form::textarea('body',null,array('class'=>'form-control'))}}
 					{{Form::submit('Create Post',array('class'=>'btn btn-info btn-lg btn-block','style'=>'margin-top:20px;'))}}
