@@ -72,16 +72,16 @@
 									<td>{{$post->title}}</td>
 									<td>{{substr($post->body,0,50)}}{{ strlen($post->body) > 50 ? "..." : ""}}</td>
 									<td>{{date('M j, Y', strtotime($post->created_at))}}</td>
-									<td><a href="{{route('posts.show', $post->id)}}" class="btn btn-default btn-sm">View</a><a href="{{route('posts.edit', $post->id)}}" class="btn btn-default btn-sm">Edit</a>{!! Form::open(['route' => ['posts.destroy',$post->id], 'method'=>'delete']) !!}
-
-                {!!Form::submit('Delete',array('class' => ' btn btn-danger btn-sm'))!!}
-                
-                {!! Form::close() !!}</td>
+									<td><a href="{{route('posts.show', $post->id)}}" class="btn btn-default btn-sm">View</a><a href="{{route('posts.edit', $post->id)}}" class="btn btn-default btn-sm">Edit</a>
+								{!! Form::open(['route' => ['posts.destroy',$post->id], 'method'=>'delete']) !!}
+								{!!Form::submit('Delete',array('class' => ' btn btn-danger btn-sm'))!!}
+                				{!! Form::close() !!}</td>
 								</tr>
 							@endforeach
 						</tbody>
 					</table>
-				</div>
+
+						 {!!$posts->links();!!}
 			</div>
 		</div>
 
