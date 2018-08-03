@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'Post | BettyKings Daily')
+@section('title', "Post | $post->title" )
 
 @section('content')
 <body id="top">
@@ -101,13 +101,11 @@
 
             <div class="s-content__header col-full">
 
-                @include('partials._messages')
                 <h1 class="s-content__header-title">
                     {{$post->title}}
                 </h1>
                 <ul class="s-content__header-meta">
                     <li class="date">{{date('F j, Y g:ia',strtotime($post->created_at))}}</li>
-                    <li class="cat"><a href="{{route('blog.single', $post->slug)}}">{{ url('blog/'.$post->slug) }}</a></li>
                     <li class="cat">
                         In
                         <a href="#0">Lifestyle</a>
@@ -178,14 +176,6 @@
                 </ul>
 
                 <p>Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.</p>
-
-                {!!Html::linkRoute('posts.edit', 'Edit Post', array($post->id), array('class' => 'btn btn--primary btn--medium full-width'))!!}
-
-                {!! Form::open(['route' => ['posts.destroy',$post->id], 'method'=>'delete']) !!}
-
-                {!!Form::submit('Delete Post',array('class' => 'submit btn btn--danger btn--primary btn--medium full-width'))!!}
-
-                {!! Form::close() !!}
                 <p class="s-content__tags">
                     <span>Post Tags</span>
 

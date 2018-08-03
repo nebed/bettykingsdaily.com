@@ -118,7 +118,7 @@
                             <div class="entry__date">
                                 <a href="single-standard.html">{{date('F j, Y g:ia',strtotime($post->created_at))}}</a>
                             </div>
-                            <h1 class="entry__title"><a href="single-standard.html">{{$post->title}}</a></h1>
+                            <h1 class="entry__title"><a href="{{route('blog.single', $post->slug)}}">{{$post->title}}</a></h1>
                             
                         </div>
                         <div class="entry__excerpt">
