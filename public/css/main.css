@@ -1,9 +1,5 @@
 /* =================================================================== 
  *
- *  Philosophy v1.0 Main Stylesheet
- *  1-2-2018
- *  ------------------------------------------------------------------
- *
  *  TOC:
  *  # base style overrides
  *    ## links
@@ -1145,6 +1141,17 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 /* -------------------------------------------------------------------
  * ## pagination 
  * ------------------------------------------------------------------- */
+
+
+.pagination>li>a:focus,  .pagination>li>span:focus {
+    z-index: 2;
+    color: #23527c;
+    background-color: #eee;
+    border-color: #ddd;
+}
+.pagination>li>a:hover,.pagination>li>span:hover {
+
+}
 .pgn {
    margin: 3rem auto;
    text-align: center;
@@ -1164,7 +1171,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    padding: 0;
 }
 
-.pgn__num {
+.pagination>li>a, .pagination>li>span {
    font-family: "metropolis-bold", sans-serif;
    font-size: 1.5rem;
    line-height: 2.4rem;
@@ -1178,22 +1185,23 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    transition: all 0.3s ease-in-out;
 }
 
-.pgn__num:hover {
+.pagination>li>a, .pagination>li>span:hover {
    background: #c4c4c4;
    color: #151515;
 }
 
-.pgn .current, .pgn .current:hover {
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover  {
    background-color: #151515;
    color: #FFFFFF;
 }
 
-.pgn .inactive, .pgn .inactive:hover {
+
+.pagination>li>a, .pagination>li>span, .pagination>li>a, .pagination>li>span:hover {
    color: #888888;
    cursor: default;
 }
 
-.pgn__prev, .pgn__next {
+.pagination>li:first-child>a, .pagination>li:first-child>span, .pagination>li:last-child>a, .pagination>li:last-child>span {
    display: block;
    background-color: #FFFFFF;
    background-repeat: no-repeat;
@@ -1218,7 +1226,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    transform: translateY(-50%);
 }
 
-.pgn__prev:hover, .pgn__next:hover {
+.pagination>li:first-child>a, .pagination>li:first-child>span:hover, .pagination>li:last-child>a, .pagination>li:last-child>span:hover {
    background-color: #151515;
    color: #FFFFFF;
    text-decoration: none;
@@ -1226,35 +1234,35 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    background-position: center;
 }
 
-.pgn__prev {
+.pagination>li:first-child>a, .pagination>li:first-child>span {
    background-image: url("../images/icons/icon-arrow-left.svg");
    left: 0;
 }
 
-.pgn__prev:hover {
+.pagination>li:first-child>a, .pagination>li:first-child>span:hover {
    background-image: url("../images/icons/icon-arrow-left-w.svg");
 }
 
-.pgn__next {
+.pagination>li:last-child>a, .pagination>li:last-child>span {
    background-image: url("../images/icons/icon-arrow-right.svg");
    right: 0;
 }
 
-.pgn__next:hover {
+.pagination>li:last-child>a, .pagination>li:last-child>span:hover {
    background-image: url("../images/icons/icon-arrow-right-w.svg");
 }
 
-.pgn__prev.inactive, .pgn__next.inactive {
+.pagination>li:first-child.disabled>a, .pagination>li:first-child.disabled>span, .pagination>li:last-child.disabled>a, .pagination>li:last-child.disabled>span {
    background-color: #ffffff;
    opacity: 0.5;
    cursor: default;
 }
 
-.pgn__prev.inactive:hover {
+.pagination>li:first-child.disabled>a, .pagination>li:first-child.disabled>span:hover {
    background-image: url("../images/icons/icon-arrow-left.svg");
 }
 
-.pgn__next.inactive:hover {
+.pagination>li:last-child.disabled>a, .pagination>li:last-child.disabled>span:hover {
    background-image: url("../images/icons/icon-arrow-right.svg");
 }
 
@@ -1267,7 +1275,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
       padding: 0 5rem;
    }
 
-   .pgn__prev, .pgn__next {
+   .pagination>li:first-child>a, .pagination>li:first-child>span, .pagination>li:last-child>a, .pagination>li:last-child>span {
       height: 3.6rem;
       width: 3.6rem;
       line-height: 3.6rem;
@@ -3202,7 +3210,9 @@ html.no-csstransitions .featured {
    }
 
    .s-extra .popular__posts article:nth-child(n+5) {
+      /*
       display: none;
+      */
    }
 
 }
