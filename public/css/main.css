@@ -1196,10 +1196,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 
-.pagination>li>a, .pagination>li>span, .pagination>li>a, .pagination>li>span:hover {
+/*.pagination>li>a, .pagination>li>span, .pagination>li>a, .pagination>li>span:hover {
    color: #888888;
    cursor: default;
 }
+*/
 
 .pagination>li:first-child>a, .pagination>li:first-child>span, .pagination>li:last-child>a, .pagination>li:last-child>span {
    display: block;
