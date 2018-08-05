@@ -126,9 +126,9 @@
 
             <div class="col-full s-content__main">
 
-                <p class="lead">{{$post->body}}</p>
+                <p class="lead">{!!$post->body!!}</p>
                 
-                <p>{{$post->body}}
+                <p>{!!$post->body!!}
                 </p>
 
                 <p>
@@ -139,7 +139,7 @@
 
                 <h2>Large Heading</h2>
 
-                <p>{{$post->body}}</p>
+                <p>{!!$post->body!!}</p>
 
                 <blockquote><p>This is a simple example of a styled blockquote. A blockquote tag typically specifies a section that is quoted from another source of some sort, or highlighting text in your post.</p></blockquote>
 
