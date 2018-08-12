@@ -58,8 +58,8 @@
                             <li><a href="category.html">Work</a></li>
                             </ul>
                         </li>
-                        <li class="has-children">
-                            <a href="#0" title="">Blog</a>
+                        <li class="has-children {{ Request::is('blog') ? "current" : "" }}">
+                            <a href="/blog" title="">Blog</a>
                             <ul class="sub-menu">
                             <li><a href="single-video.html">Video Post</a></li>
                             <li><a href="single-audio.html">Audio Post</a></li>
@@ -70,6 +70,21 @@
                         <li><a href="style-guide.html" title="">Styles</a></li>
                         <li class="{{ Request::is('about') ? "current" : "" }}"><a href="/about" title="">About</a></li>
                         <li class="{{ Request::is('contact') ? "current" : "" }}"><a  href="/contact" title="">Contact</a></li>
+                        @if (Auth::check())
+                        <li class="has-children">
+                            <a href="#0" title="">Admin {{Auth::user()->name}}</a>
+                            <ul class="sub-menu">
+                            <li><a href="{{route('posts.index')}}">Posts</a></li>
+                            <li><a href="{{route('logout')}}">Logout</a></li>
+                            </ul>
+                        </li>
+                        @else
+                        <li class="{{ Request::is('auth/login') ? "current" : "" }}">
+                        <a href="{{route('login')}}" class="">Login</a>
+                        </li>
+                        @endif 
+
+
                     </ul> <!-- end header__nav -->
 
                     <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>

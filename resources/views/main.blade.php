@@ -3,7 +3,6 @@
 
     @include('partials._head')
 
-
         @yield('content')
 
 
