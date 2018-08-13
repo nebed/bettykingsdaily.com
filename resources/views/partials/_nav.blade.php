@@ -75,6 +75,7 @@
                             <a href="#0" title="">Admin {{Auth::user()->name}}</a>
                             <ul class="sub-menu">
                             <li><a href="{{route('posts.index')}}">Posts</a></li>
+                            <li><a href="{{route('categories.index')}}">Categories</a></li>
                             <li><a href="{{route('logout')}}">Logout</a></li>
                             </ul>
                         </li>

@@ -26,6 +26,8 @@ Route::group(['middleware' => ['web']], function(){
 	Route::get('password/reset/{token?}','Auth\PasswordController@showResetForm');
 	Route::post('password/email','Auth\PasswordController@sendResetLinkEmail');
 	Route::post('password/reset','Auth\PasswordController@reset');
+	//Categories
+	Route::resource('categories','CategoryController',['except'=>['create']]);
 
 	Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]{5,70}');
 	Route::get('blog', ['uses'=> 'BlogController@getIndex', 'as' => 'blog.index']);

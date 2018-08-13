@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <title>Create Post | BettyKings Daily</title>
+    <title>All Categories | BettyKings Daily</title>
   </head>
   <body>
 
@@ -51,30 +51,38 @@
 		<div class="container">
 			<br>
 			<div class="row justify-content-md-center">
-				<div class="col-md-8 col-md-offset-2">
+				<div class="col-md-8">
 					@include('partials._messages')
-					<h1>Create New Post</h1>
+					<h1>Categories</h1>
 					<hr>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+              </tr>
+            </thead>
 
-					{!! Form::open(['route' => 'posts.store']) !!}
-					{{Form::label('title','Title:')}}
-					{{Form::text('title',null,array('class'=>'form-control','required' => 'yes'))}}
-					{{Form::label('slug','URL:')}}
-					{{Form::text('slug',null,array('class'=>'form-control','required' => 'yes','min-length'=>'5', 'max-length'=>'70'))}}
-          {{ Form::label('category_id','Category:') }}
-          <select class="form-control" name="category_id">
-            
-            @foreach($categories as $category)
-            <option value='{{$category->id}}'>{{$category->name}}</option>
-            @endforeach
-
-          </select>
-					{{Form::label('body','Post Body:')}}
-					{{Form::textarea('body',null,array('class'=>'form-control'))}}
-					{{Form::submit('Create Post',array('class'=>'btn btn-info btn-lg btn-block','style'=>'margin-top:20px;'))}}
-					{!! Form::close() !!}
-					
+            <tbody>
+              @foreach ($categories as $category)
+              <tr>
+                <td>{{$category->id}}</td>
+                <td>{{$category->name}}</td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
 				</div>
+        <div class="col-md-3">
+          <div class="well">
+            {!! Form::open(['route'=>'categories.store','method'=>'POST']) !!}
+            <h2>New Category</h2>
+            {{  Form::label('name','Name:') }}
+            {{ Form::text('name',null,['class'=>'form-control']) }}
+            {{ Form::submit('Create New Category',['class'=>'btn btn-primary btn-block btn-h1-spacing']) }}
+            {!! Form::close() !!}
+          </div>
+        </div>
 			</div>
 		</div>
 

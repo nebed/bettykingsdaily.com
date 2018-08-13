@@ -34,8 +34,8 @@
                     <li class="date">{{date('F j, Y g:ia',strtotime($post->created_at))}}</li>
                     <li class="cat">
                         In
-                        <a href="#0">Lifestyle</a>
-                        <a href="#0">Travel</a>
+                        {{ Form::label('category_id', 'Category:') }}
+                    {{ Form::select('category_id', $categories,null, ["class" => 'full-width']) }}
                     </li>
                 </ul>
             </div> <!-- end s-content__header -->

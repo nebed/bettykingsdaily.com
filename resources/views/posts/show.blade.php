@@ -110,8 +110,7 @@
                     <li class="cat"><a href="{{route('blog.single', $post->slug)}}">{{ url('blog/'.$post->slug) }}</a></li>
                     <li class="cat">
                         In
-                        <a href="#0">Lifestyle</a>
-                        <a href="#0">Travel</a>
+                        <a href="#0">{{$post->category->name}}</a>
                     </li>
                 </ul>
             </div> <!-- end s-content__header -->
