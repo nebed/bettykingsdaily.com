@@ -8,11 +8,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <title>All Tags | BettyKings Daily</title>
+    <title>Tag | BettyKings Daily</title>
   </head>
   <body>
 
-		    <nav class="navbar navbar-default">
+  		<nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -49,42 +49,44 @@
 </nav>
 
 		<div class="container">
-			<br>
-			<div class="row justify-content-md-center">
+			<div class="row">
 				<div class="col-md-8">
-					@include('partials._messages')
-					<h1>Categories</h1>
-					<hr>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              @foreach ($tags as $tag)
-              <tr>
-                <td>{{$tag->id}}</td>
-                <td><a href="{{route('tags.show',$tag->id)}} ">{{$tag->name}}</a></td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-				</div>
-        <div class="col-md-3">
-          <div class="well">
-            {!! Form::open(['route'=>'tags.store','method'=>'POST']) !!}
-            <h2>New Tag</h2>
-            {{  Form::label('name','Name:') }}
-            {{ Form::text('name',null,['class'=>'form-control']) }}
-            {{ Form::submit('Create New Tag',['class'=>'btn btn-primary btn-block btn-h1-spacing']) }}
-            {!! Form::close() !!}
-          </div>
-        </div>
-			</div>
+			<h1>{{ $tag->name }} Tag <small>{{ $tag->posts()->count() }} Posts</small></h1>
 		</div>
+		<div class="col-md-2 col-md-offset-2">
+			<a href="{{ route('tags.edit',$tag->id)}}" class="btn btn-primary btn-block pull-right" style="margin-top:20px;">Edit</a>
+		</div>
+		</div>
+
+		<div class="row">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Title</th>
+						<th>Tags</th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					@foreach($tag->posts as $post)
+					<tr>
+						<th> {{$post->id}}</th>
+						<td> {{$post->title}}</td>
+						<td>@foreach ($post->tags as $tag)
+							<span class="label label-default">{{$tag->name}}</span>
+							@endforeach
+            </td>
+            <td><a href="{{route('posts.show',$post->id)}} " class="btn btn-default btn-xs">View</a></td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
+		</div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -8,11 +8,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <title>All Tags | BettyKings Daily</title>
+    <title>Edit Tag | BettyKings Daily</title>
   </head>
   <body>
 
-		    <nav class="navbar navbar-default">
+  		<nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -49,42 +49,17 @@
 </nav>
 
 		<div class="container">
-			<br>
-			<div class="row justify-content-md-center">
-				<div class="col-md-8">
-					@include('partials._messages')
-					<h1>Categories</h1>
-					<hr>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-              </tr>
-            </thead>
+			{{ Form::model($tag,['route'=>['tags.update',$tag->id],'method'=>"PUT"])}}
 
-            <tbody>
-              @foreach ($tags as $tag)
-              <tr>
-                <td>{{$tag->id}}</td>
-                <td><a href="{{route('tags.show',$tag->id)}} ">{{$tag->name}}</a></td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-				</div>
-        <div class="col-md-3">
-          <div class="well">
-            {!! Form::open(['route'=>'tags.store','method'=>'POST']) !!}
-            <h2>New Tag</h2>
-            {{  Form::label('name','Name:') }}
-            {{ Form::text('name',null,['class'=>'form-control']) }}
-            {{ Form::submit('Create New Tag',['class'=>'btn btn-primary btn-block btn-h1-spacing']) }}
-            {!! Form::close() !!}
-          </div>
-        </div>
-			</div>
+          {{Form::label('name', "Title:")}}
+          {{Form::text('name',null, ['class'=>'form-control'])}}
+
+          {{Form::submit('Save Changes',['class'=>'btn btn-success submit', 'style'=>"margin-top:20px;"])}}
+
+      {{Form::close()}}
 		</div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
