@@ -30,13 +30,14 @@
                 </h1>
                 {{ Form::label('slug', 'URL:') }}
                     {{ Form::text('slug', null, ["class" => 'full-width']) }}
-                <ul class="s-content__header-meta">
-                    <li class="date">{{date('F j, Y g:ia',strtotime($post->created_at))}}</li>
-                    <li class="cat">
                         In
                         {{ Form::label('category_id', 'Category:') }}
-                    {{ Form::select('category_id', $categories,null, ["class" => 'full-width']) }}
-                    </li>
+                    {{ Form::select('category_id', $categories, null, ["class" => 'full-width']) }}
+                  
+                {{ Form::label('tags', 'Tags:') }}
+                    {{ Form::select('tags[]', $tags, null, ["class" => "multiple-tags-select2 full-width",'multiple'=>'multiple']) }}
+                    <ul class="s-content__header-meta">
+                    <li class="date">{{date('F j, Y g:ia',strtotime($post->created_at))}}</li>
                 </ul>
             </div> <!-- end s-content__header -->
     
@@ -109,10 +110,9 @@
                     <span>Post Tags</span>
 
                     <span class="s-content__tag-list">
-                        <a href="#0">orci</a>
-                        <a href="#0">lectus</a>
-                        <a href="#0">varius</a>
-                        <a href="#0">turpis</a>
+                         @foreach ($post->tags as $tag)
+                        <a href="#0">{{ $tag->name }} </a>
+                        @endforeach
                     </span>
                 </p> <!-- end s-content__tags -->
 
@@ -352,3 +352,11 @@
     </section> <!-- s-content -->
 
 @endsection 
+
+@section('select_include')
+{!! Html::script('js/select2.min.js') !!}
+@endsection
+@section('select_js')
+$('.multiple-tags-select2').select2();
+      $('.multiple-tags-select2').select2().val({!! json_encode($post->tags()->getRelatedIds()) !!}).trigger('change');
+@endsection

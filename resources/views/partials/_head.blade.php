@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/base.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/vendor.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
+    {!! Html::style('css/select2.min.css') !!}
 
     <!-- script
     ================================================== -->

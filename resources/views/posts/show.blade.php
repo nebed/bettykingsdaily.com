@@ -189,10 +189,9 @@
                     <span>Post Tags</span>
 
                     <span class="s-content__tag-list">
-                        <a href="#0">orci</a>
-                        <a href="#0">lectus</a>
-                        <a href="#0">varius</a>
-                        <a href="#0">turpis</a>
+                        @foreach ($post->tags as $tag)
+                        <a href="#0">{{ $tag->name }} </a>
+                        @endforeach
                     </span>
                 </p> <!-- end s-content__tags -->
 
