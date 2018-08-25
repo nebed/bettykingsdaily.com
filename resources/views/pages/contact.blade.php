@@ -57,8 +57,8 @@
                     <div class="col-six tab-full">
                         <h3>Contact Info</h3>
 
-                        <p>contact@philosophywebsite.com<br>
-                        info@philosophywebsite.com <br>
+                        <p>hello@bettykingsdaily.com<br>
+                        info@bettykingsdaily.com <br>
                         Phone: (+1) 123 456
                         </p>
 
@@ -67,7 +67,8 @@
 
                 <h3>Say Hello.</h3>
 
-                <form name="cForm" id="cForm" method="post" action="">
+                <form name="cForm" id="cForm" method="POST" action="{{ url('contact') }}">
+                    {{csrf_field()}}
                     <fieldset>
 
                         <div class="form-field">
@@ -79,11 +80,11 @@
                         </div>
 
                         <div class="form-field">
-                            <input name="cWebsite" type="text" id="cWebsite" class="full-width" placeholder="Website"  value="">
+                            <input name="cSubject" type="text" id="cSubject" class="full-width" placeholder="Subject"  value="">
                         </div>
 
                         <div class="message form-field">
-                        <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message" ></textarea>
+                        <textarea name="message" id="message" class="full-width" placeholder="Your Message..." ></textarea>
                         </div>
 
                         <button type="submit" class="submit btn btn--primary full-width">Submit</button>
