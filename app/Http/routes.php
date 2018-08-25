@@ -30,6 +30,9 @@ Route::group(['middleware' => ['web']], function(){
 	Route::resource('categories','CategoryController',['except'=>['create']]);
 	Route::resource('tags','TagController',['except'=>['create']]);
 
+	//Comments
+	Route::post('comments/{post_id}', ['as' => 'comments.store', 'uses' => 'CommentsController@store']);
+
 	Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]{5,70}');
 	Route::get('blog', ['uses'=> 'BlogController@getIndex', 'as' => 'blog.index']);
 	Route::get('/contact', 'PagesController@getContact');
