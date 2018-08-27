@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"come",
+				"Comment"
+			],
+			[
+				"form",
+				"form-control"
+			],
+			[
 				"category",
 				"category_id"
 			],
@@ -24,53 +32,47 @@
 	"buffers":
 	[
 		{
-			"file": "app/Http/Controllers/TagController.php",
+			"file": "resources/views/blog/single.blade.php",
 			"settings":
 			{
-				"buffer_size": 1873,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/tags/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 3880,
+				"buffer_size": 19536,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "resources/views/categories/index.blade.php",
+			"file": "resources/views/posts/show.blade.php",
 			"settings":
 			{
-				"buffer_size": 3923,
+				"buffer_size": 13277,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/CategoryController.php",
-			"settings":
-			{
-				"buffer_size": 2006,
-				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 1718,
+				"buffer_size": 2190,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/C/xampp/htdocs/mpulse/index.php",
+			"file": "app/Http/Controllers/CommentsController.php",
 			"settings":
 			{
-				"buffer_size": 987,
+				"buffer_size": 2595,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/comments/edit.blade.php",
+			"settings":
+			{
+				"buffer_size": 3479,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -107,7 +109,7 @@
 	},
 	"console":
 	{
-		"height": 157.0,
+		"height": 266.0,
 		"history":
 		[
 			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
@@ -126,24 +128,40 @@
 	[
 		"/C/xampp/htdocs/bettykingsdaily.com",
 		"/C/xampp/htdocs/bettykingsdaily.com/app",
-		"/C/xampp/htdocs/bettykingsdaily.com/app/Http",
-		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/Controllers",
-		"/C/xampp/htdocs/bettykingsdaily.com/database",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views",
-		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/categories",
-		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/posts",
+		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/comments",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/tags"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/mpulse/mpulsefunctions/collectdetails.php",
+		"/D/.fseventsd/fseventsd-uuid",
+		"/C/xampp/htdocs/bettykingsdaily.com/app/Comment.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/vendor/symfony/dom-crawler/Form.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/routes.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/app/Post.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/database/migrations/2018_08_25_085557_create_comments_table.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/Controllers/PagesController.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/pages/contact.blade.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/emails/contact.blade.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/Controllers/PostController.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/Controllers/TagController.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/tags/show.blade.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/tags/edit.blade.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/tags/index.blade.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/partials/_javascript.blade.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/posts/edit.blade.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/posts/create.blade.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/partials/_head.blade.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/posts/show.blade.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/blog/single.blade.php",
+		"/C/xampp/htdocs/mpulse/index.php",
+		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/Controllers/CategoryController.php",
+		"/C/xampp/htdocs/mpulse/mpulsefunctions/collectdetails.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/app/Tag.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/database/migrations/2018_08_22_173026_create_tags_table.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/database/migrations/2018_08_22_174623_create_post_tag_table.php",
 		"/C/xampp/htdocs/mpulse/validate.php",
-		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/Controllers/TagController.php",
 		"/C/xampp/htdocs/mpulse/new.php",
 		"/C/xampp/htdocs/accessbank/accessfunctions/collectdetails.php",
 		"/C/xampp/htdocs/drimo/index.html",
@@ -157,21 +175,14 @@
 		"/C/xampp/htdocs/mpulse/guest_info.php",
 		"/C/xampp/htdocs/sterlingoau/new.php",
 		"/C/xampp/htdocs/accessbank/new.php",
-		"/C/xampp/htdocs/mpulse/index.php",
 		"/C/xampp/htdocs/accessbank/index.php",
 		"/C/xampp/htdocs/accessbank/slides.php",
 		"/C/xampp/htdocs/cta.html",
 		"/C/xampp/htdocs/mpulse/mpulsefunctions/check_user_func.php",
 		"/C/xampp/htdocs/mpulse/accessfunctions/check_user_func.php",
-		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/Controllers/CategoryController.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/app/Category.php",
-		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/posts/edit.blade.php",
-		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/posts/show.blade.php",
-		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/posts/create.blade.php",
-		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/Controllers/PostController.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/categories/index.blade.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/app/Catergory.php",
-		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/routes.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/partials/_nav.blade.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/database/migrations/2018_08_13_075134_add_category_id_to_posts.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/database/migrations/2018_08_13_073404_create_categories_table.php",
@@ -185,7 +196,6 @@
 		"/C/xampp/htdocs/bettykingsdaily.com/config/mail.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/Controllers/Auth/PasswordController.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/auth/register.blade.php",
-		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/pages/contact.blade.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/main.blade.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/app/User.php",
 		"/C/xampp/htdocs/accessbank/guest_info.php",
@@ -197,20 +207,16 @@
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/auth/logout.blade.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/database/migrations/2018_08_05_220540_add_description_to_users.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/Controllers/BlogController.php",
-		"/C/xampp/htdocs/bettykingsdaily.com/app/Http/Controllers/PagesController.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/pages/index.blade.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/blog/index.blade.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/public/css/base.css",
 		"/C/xampp/htdocs/bettykingsdaily.com/public/css/main.css",
-		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/blog/single.blade.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/partials/_messages.blade.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/database/migrations/2018_08_02_154318_add_slugs_to_posts.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/pages/about.blade.php",
-		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/partials/_head.blade.php",
 		"/C/Users/nebed/AppData/Roaming/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/standard.blade.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/posts/show3.blade.php",
-		"/C/xampp/htdocs/bettykingsdaily.com/resources/views/partials/_javascript.blade.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/composer.json",
 		"/C/xampp/htdocs/bettykingsdaily.com/database/migrations/2018_07_31_084112_create_posts_table.php",
 		"/C/xampp/htdocs/bettykingsdaily.com/config/app.php",
@@ -276,19 +282,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app/Http/Controllers/TagController.php",
+					"file": "resources/views/blog/single.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1873,
+						"buffer_size": 19536,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								105,
-								105
+								11511,
+								11512
 							]
 						],
 						"settings":
@@ -298,7 +304,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3743.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -306,79 +312,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/tags/index.blade.php",
+					"file": "resources/views/posts/show.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3880,
+						"buffer_size": 13277,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2692,
-								2692
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1036.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "resources/views/categories/index.blade.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 3923,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								3923
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/Http/Controllers/CategoryController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2006,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1341,
-								1339
+								12762,
+								12762
 							]
 						],
 						"settings":
@@ -388,27 +334,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 830.0,
+						"translation.y": 6848.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 2,
 					"file": "app/Http/routes.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1718,
+						"buffer_size": 2190,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1224,
-								1224
+								1587,
+								1587
 							]
 						],
 						"settings":
@@ -417,27 +363,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 557.0,
+						"translation.y": 641.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "/C/xampp/htdocs/mpulse/index.php",
+					"buffer": 3,
+					"file": "app/Http/Controllers/CommentsController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 987,
+						"buffer_size": 2595,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2390,
+								2390
 							]
 						],
 						"settings":
@@ -447,10 +393,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1470.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "resources/views/comments/edit.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3479,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2690,
+								2690
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1502.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -533,7 +509,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 209.0,
+	"side_bar_width": 50.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

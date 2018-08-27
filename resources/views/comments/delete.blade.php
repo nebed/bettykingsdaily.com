@@ -7,14 +7,12 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    {!! Html::style('css/select2.min.css') !!}
-  <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-  <script>tinymce.init({ selector:'textarea', plugins: "link, emoticons, code, fullscreen", menubar: true});</script>
-    <title>Create Post | BettyKings Daily</title>
+
+    <title>Delete Comment | BettyKings Daily</title>
   </head>
   <body>
 
-		    <nav class="navbar navbar-default">
+  		<nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -51,52 +49,32 @@
 </nav>
 
 		<div class="container">
-			<br>
-			<div class="row justify-content-md-center">
-				<div class="col-md-8 col-md-offset-2">
-					@include('partials._messages')
-					<h1>Create New Post</h1>
-					<hr>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
 
-					{!! Form::open(['route' => 'posts.store']) !!}
-					{{Form::label('title','Title:')}}
-					{{Form::text('title',null,array('class'=>'form-control','required' => 'yes'))}}
-					{{Form::label('slug','URL:')}}
-					{{Form::text('slug',null,array('class'=>'form-control','required' => 'yes','min-length'=>'5', 'max-length'=>'70'))}}
-          {{ Form::label('category_id','Category:') }}
-          <select class="form-control" name="category_id">
-            
-            @foreach($categories as $category)
-            <option value='{{$category->id}}'>{{$category->name}}</option>
-            @endforeach
+          <h1>DELETE THIS COMMENT?</h1>
+          <p>
+            <strong>NAME:</strong> {{$comment->name}}<br>
+            <strong>NAME:</strong> {{$comment->email}}<br>
+            <strong>NAME:</strong> {{$comment->comment}}<br>
+          </p>
+        </div>
 
-          </select>
+      </div>
 
-          {{ Form::label('tags','Tags:') }}
-          <select class="form-control multiple-tags-select2" multiple="multiple" name="tags[]">
-            
-            @foreach($tags as $tag)
-            <option value='{{$tag->id}}'>{{$tag->name}}</option>
-            @endforeach
+			{{ Form::open(['route'=>['comments.destroy',$comment->id],'method'=>"DELETE"]) }}
 
-          </select>
-					{{Form::label('body','Post Body:')}}
-					{{Form::textarea('body',null,array('class'=>'form-control'))}}
-					{{Form::submit('Create Post',array('class'=>'btn btn-info btn-lg btn-block','style'=>'margin-top:20px;'))}}
-					{!! Form::close() !!}
-					
-				</div>
-			</div>
+          {{Form::submit('Yes Delete Comment',['class'=>'btn btn-danger btn-block submit', 'style'=>"margin-top:20px;"])}}
+
+      {{Form::close()}}
 		</div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    {!! Html::script('js/select2.min.js') !!}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript"> 
-      $('.multiple-tags-select2').select2();
-    </script>
   </body>
 </html>

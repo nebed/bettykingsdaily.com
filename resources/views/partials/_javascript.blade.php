@@ -4,4 +4,5 @@
     @yield('select_include')
     <script type="text/javascript"> 
     	@yield('select_js')
+    	@yield('deletecomment')
     </script>
