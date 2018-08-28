@@ -8,24 +8,27 @@ use App\Http\Requests;
 
 use App\Post;
 use App\Tag;
-
+use App\Category;
 use Mail;
 use Session;
 
 
 class PagesController extends Controller {
 	public function getHome(){
+		$categorylist = Category::all();
 		$posts = Post::orderBy('created_at', 'desc')->paginate(6);
 		$tagfoot = Tag::all();
-		return view('pages.index')->withPosts($posts)->withTagfoot($tagfoot);
+		return view('pages.index')->withPosts($posts)->withTagfoot($tagfoot)->withCategorylist($categorylist);
 	}
 	public function getAbout(){
+		$categorylist = Category::all();
 		$tagfoot = Tag::all();
-		return view('pages.about')->withTagfoot($tagfoot);
+		return view('pages.about')->withTagfoot($tagfoot)->withCategorylist($categorylist);
 	}
 	public function getContact(){
+		$categorylist = Category::all();
 		$tagfoot = Tag::all();
-		return view('pages.contact')->withTagfoot($tagfoot);
+		return view('pages.contact')->withTagfoot($tagfoot)->withCategorylist($categorylist);
 	}
 	public function postContact(Request $request){
 

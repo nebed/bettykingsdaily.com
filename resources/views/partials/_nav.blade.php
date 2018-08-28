@@ -48,14 +48,11 @@
                     <ul class="header__nav">
                         <li class="{{ Request::is('/') ? "current" : "" }}"><a href="/" title="">Home</a></li>
                         <li class="has-children">
-                            <a href="#0" title="">Categories</a>
+                            <a href="#" title="">Categories</a>
                             <ul class="sub-menu">
-                            <li><a href="category.html">Lifestyle</a></li>
-                            <li><a href="category.html">Health</a></li>
-                            <li><a href="category.html">Family</a></li>
-                            <li><a href="category.html">Management</a></li>
-                            <li><a href="category.html">Travel</a></li>
-                            <li><a href="category.html">Work</a></li>
+                                @foreach($categorylist as $categorieslist)
+                            <li><a href="{{route('category.index',$categorieslist->name)}}">{{ $categorieslist->name }}</a></li>
+                            @endforeach
                             </ul>
                         </li>
                         <li class="{{ Request::is('blog') ? "current" : "" }}">

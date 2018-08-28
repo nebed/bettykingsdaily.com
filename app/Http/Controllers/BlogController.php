@@ -25,5 +25,9 @@ class BlogController extends Controller
     	return view('blog.single')->withPost($post)->withTagfoot($tagfoot);
     }
 
+    public function getList($name){
+        
+    }
+
 }
  
