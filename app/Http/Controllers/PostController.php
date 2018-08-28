@@ -12,6 +12,7 @@ use App\Tag;
 use Session;
 use Purifier;
 use Image;
+use Storage;
 
 class PostController extends Controller
 {
@@ -147,20 +148,16 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //Validate the data
+        //dd($request);
         $post= Post::find($id);
-        if ($request->input('slug') == $post->slug )
-        {$this->validate($request, array(
-                    'title' => 'required|max:255',
-                    'category_id'=>'required|integer',
-                    'body' => 'required'
-                ));}
-    else
-        {$this->validate($request, array(
+    
+    $this->validate($request, array(
                     'title' => 'required|max:255',
                     'slug' => "required|alpha_dash|min:5|max:70|unique:posts,slug,$id",
                     'category_id'=>'required|integer',
-                    'body' => 'required'
-                )); }
+                    'body' => 'required',
+                    'featured_image' => 'image'
+                )); 
         //Save the data to the database
         $post->title = $request->input('title');
         $post->slug = $request->input('slug');
@@ -178,6 +175,10 @@ class PostController extends Controller
                 $thumb_location = public_path('images\\thumbs\\'.$thumbname);
                 Image::make($file_uploaded)->resize(null, 500, function ($constraint) { $constraint->aspectRatio();})->save($location);
                 Image::make($file_uploaded)->resize(null, 150, function ($constraint) { $constraint->aspectRatio();})->crop(150, 150)->save($thumb_location);
+                $oldFilename = $post->featured_image;
+                $oldthumb = $post->thumbnail;
+                Storage::delete($oldFilename);
+                Storage::delete('thumbs\\'.$oldthumb);
                 $post->featured_image = $filename;
                 $post->thumbnail = $thumbname;
             }
@@ -206,6 +207,10 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        $oldFilename = $post->featured_image;
+        $oldthumb = $post->thumbnail;
+        Storage::delete($oldFilename);
+        Storage::delete('thumbs\\'.$oldthumb);
         $post->tags()->detach();
         $post->delete();
         Session::flash('success', 'The post was successfully deleted');

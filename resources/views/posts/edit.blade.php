@@ -53,12 +53,6 @@
                  {{ Form::label('body', 'Body:') }}
                 {{ Form::textarea('body', null, ["class" => 'full-width']) }}
 
-                <p>
-                <img src="{{ URL::asset('images/wheel-1000.jpg') }}" 
-                     srcset="{{ URL::asset('images/wheel-2000.jpg') }} 2000w, {{ URL::asset('images/wheel-1000.jpg') }} 1000w, {{ URL::asset('images/wheel-500.jpg') }} 500w" 
-                     sizes="(max-width: 2000px) 100vw, 2000px" alt="">
-                </p>
-
                 {!!Html::linkRoute('posts.show', 'Cancel', array($post->id), array('class' => 'btn btn--danger btn--primary btn--medium full-width'))!!}
                 {!!Form::submit('Save Changes', array('class' => 'submit btn btn--primary btn--medium full-width'))!!}
                 {!! Form::close() !!}
