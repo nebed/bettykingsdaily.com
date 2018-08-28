@@ -106,9 +106,8 @@
                 <article class="masonry__brick entry format-standard" data-aos="fade-up">
                         
                     <div class="entry__thumb">
-                        <a href="#" class="entry__thumb-link">
-                            <img src="{{ URL::asset('images/thumbs/masonry/lamp-400.jpg') }}" 
-                                    srcset="{{ URL::asset('images/thumbs/masonry/lamp-400.jpg') }} 1x, {{ URL::asset('images/thumbs/masonry/lamp-800.jpg') }} 2x" alt="">
+                        <a href="{{route('blog.single', $post->slug)}}" class="entry__thumb-link">
+                            <img src="{{ asset('images/'.$post->featured_image) }}"  alt="">
                         </a>
                     </div>
     
@@ -128,8 +127,7 @@
                         </div>
                         <div class="entry__meta">
                             <span class="entry__meta-links">
-                                <a href="category.html">Design</a> 
-                                <a href="category.html">Photography</a>
+                                <a href="{{route('category.index',$post->category->name)}}">{{$post->category->name}}</a> 
                             </span>
                         </div>
                     </div>

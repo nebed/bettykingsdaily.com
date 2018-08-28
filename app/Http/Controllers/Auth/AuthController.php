@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use App\Tag;
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -35,6 +37,35 @@ class AuthController extends Controller
     {
         $this->middleware('guest', ['except' => 'getLogout']);
     }
+
+
+//overwrite default functions
+    public function showLoginForm()
+    {
+        $categorylist = Category::all();
+        $tagfoot = Tag::all();
+        $view = property_exists($this, 'loginView')
+                    ? $this->loginView : 'auth.authenticate';
+
+        if (view()->exists($view)) {
+            return view($view);
+        }
+
+        return view('auth.login')->withTagfoot($tagfoot)->withCategorylist($categorylist);
+    }
+
+    public function showRegistrationForm()
+    {
+        $categorylist = Category::all();
+        $tagfoot = Tag::all();
+        if (property_exists($this, 'registerView')) {
+            return view($this->registerView);
+        }
+
+        return view('auth.register')->withTagfoot($tagfoot)->withCategorylist($categorylist);
+    }
+
+//end overwrite
 
     /**
      * Get a validator for an incoming registration request.

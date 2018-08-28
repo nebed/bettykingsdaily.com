@@ -103,8 +103,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
+        $categorylist = Category::all();
+        $tagfoot = Tag::all();
         $post = Post::find($id); 
-        return view('posts.show')->withPost($post);
+        return view('posts.show')->withPost($post)->withTagfoot($tagfoot)->withCategorylist($categorylist);
     }
 
     /**
@@ -115,6 +117,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        $categorylist = Category::all();
+        $tagfoot = Tag::all();
         // find the post in the database and save as a variable
         $post = Post::find($id); 
         $categories = Category::all();
@@ -129,7 +133,7 @@ class PostController extends Controller
             $tags2[$tag->id] = $tag->name;
         }
         // return the view and pass in the var we previously craeted
-        return view('posts.edit')->withPost($post)->withCategories($cats)->withTags($tags2);
+        return view('posts.edit')->withPost($post)->withCategories($cats)->withTags($tags2)->withTagfoot($tagfoot)->withCategorylist($categorylist);
     }
 
     /**
