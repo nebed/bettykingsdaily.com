@@ -38,11 +38,7 @@
     
             <div class="s-content__media col-full">
                 <div class="s-content__post-thumb">
-                    <img src="{{ URL::asset('images/thumbs/single/standard/standard-1000.jpg') }}" 
-                         srcset="{{ URL::asset('images/thumbs/single/standard/standard-2000.jpg') }} 2000w, 
-                                 {{ URL::asset('images/thumbs/single/standard/standard-1000.jpg') }} 1000w, 
-                                 {{ URL::asset('images/thumbs/single/standard/standard-500.jpg') }} 500w" 
-                         sizes="(max-width: 2000px) 100vw, 2000px" alt="" >
+                    <img src="{{ asset('images/'.$post->featured_image) }}" alt="" >
                 </div>
             </div> <!-- end s-content__media -->
 

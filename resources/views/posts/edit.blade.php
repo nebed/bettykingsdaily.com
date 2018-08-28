@@ -42,12 +42,10 @@
             </div> <!-- end s-content__header -->
     
             <div class="s-content__media col-full">
+                {{ Form::label('featured_image','Upload Featured Image:') }}
+                {{ Form::file('featured_image') }}
                 <div class="s-content__post-thumb">
-                    <img src="{{ URL::asset('images/thumbs/single/standard/standard-1000.jpg') }}" 
-                         srcset="{{ URL::asset('images/thumbs/single/standard/standard-2000.jpg') }} 2000w, 
-                                 {{ URL::asset('images/thumbs/single/standard/standard-1000.jpg') }} 1000w, 
-                                 {{ URL::asset('images/thumbs/single/standard/standard-500.jpg') }} 500w" 
-                         sizes="(max-width: 2000px) 100vw, 2000px" alt="" >
+                    <img src="{{ asset('images/'.$post->featured_image) }}"  alt="" >
                 </div>
             </div> <!-- end s-content__media -->
 
@@ -79,7 +77,7 @@
 
                     <div class="s-content__author-about">
                         <h4 class="s-content__author-name">
-                            <a href="#0">Jonathan Doe</a>
+                            <a href="#0">BettyKings</a>
                         </h4>
                     
                         <p>Alias aperiam at debitis deserunt dignissimos dolorem doloribus, fuga fugiat impedit laudantium magni maxime nihil nisi quidem quisquam sed ullam voluptas voluptatum. Lorem ipsum dolor sit amet, consectetur adipisicing elit.

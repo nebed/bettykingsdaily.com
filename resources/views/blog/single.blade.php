@@ -38,8 +38,7 @@
              @if(!empty($post->featured_image))
             <div class="s-content__media col-full">
                 <div class="s-content__post-thumb">
-                    <img src="{{ asset('images/'.$post->featured_image) }}" 
-                         sizes="(max-width: 2000px) 100vw, 2000px" alt="" >
+                    <img src="{{ asset('images/'.$post->featured_image) }}"  alt="" >
                 </div>
             </div> <!-- end s-content__media -->
             @endif
