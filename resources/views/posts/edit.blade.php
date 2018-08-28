@@ -23,7 +23,7 @@
             <div class="s-content__header col-full">
 
                 @include('partials._messages')
-                {!! Form::model($post, ['route'=> ['posts.update', $post->id], 'method' => 'PUT']) !!}
+                {!! Form::model($post, ['route'=> ['posts.update', $post->id], 'files'=>true,'method' => 'PUT']) !!}
                 <h1 class="s-content__header-title">
                     {{ Form::label('title', 'Title:') }}
                     {{ Form::text('title', null, ["class" => 'full-width', 'style' => 'font-size:24px; font-weight:700; text-align:center;']) }}

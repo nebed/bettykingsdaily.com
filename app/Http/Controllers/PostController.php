@@ -57,7 +57,8 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|alpha_dash|min:5|max:70|unique:posts,slug',
             'category_id'=>'required|integer',
-            'body' => 'required'
+            'body' => 'required',
+            'featured_image' => 'sometimes|image'
 
         )); 
 
@@ -156,7 +157,7 @@ class PostController extends Controller
     else
         {$this->validate($request, array(
                     'title' => 'required|max:255',
-                    'slug' => 'required|alpha_dash|min:5|max:70|unique:posts,slug',
+                    'slug' => "required|alpha_dash|min:5|max:70|unique:posts,slug,$id",
                     'category_id'=>'required|integer',
                     'body' => 'required'
                 )); }
@@ -165,6 +166,23 @@ class PostController extends Controller
         $post->slug = $request->input('slug');
         $post->category_id = $request->input('category_id');
         $post->body  = Purifier::clean($request->input('body'));
+
+        if ($request->hasFile('featured_image')) {
+            $file_uploaded = $request->featured_image;
+            $extensions = array('jpg', 'JPG', 'png' ,'PNG' ,'jpeg' ,'JPEG', 'GIF','gif');
+            $isImage = $file_uploaded->getClientOriginalExtension();
+            if (in_array($isImage , $extensions)){
+                $filename = time().'.'.$isImage;
+                $thumbname = time().'x150'.'.'.$isImage;
+                $location = public_path('images\\'.$filename);
+                $thumb_location = public_path('images\\thumbs\\'.$thumbname);
+                Image::make($file_uploaded)->resize(null, 500, function ($constraint) { $constraint->aspectRatio();})->save($location);
+                Image::make($file_uploaded)->resize(null, 150, function ($constraint) { $constraint->aspectRatio();})->crop(150, 150)->save($thumb_location);
+                $post->featured_image = $filename;
+                $post->thumbnail = $thumbname;
+            }
+        }
+
         $post->save();
 
         if (isset($request->tags)){
