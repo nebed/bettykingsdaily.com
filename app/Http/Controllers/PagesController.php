@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Post;
+use App\Tag;
 
 use Mail;
 use Session;
@@ -15,13 +16,16 @@ use Session;
 class PagesController extends Controller {
 	public function getHome(){
 		$posts = Post::orderBy('created_at', 'desc')->paginate(6);
-		return view('pages.index')->withPosts($posts);
+		$tagfoot = Tag::all();
+		return view('pages.index')->withPosts($posts)->withTagfoot($tagfoot);
 	}
 	public function getAbout(){
-		return view('pages.about');
+		$tagfoot = Tag::all();
+		return view('pages.about')->withTagfoot($tagfoot);
 	}
 	public function getContact(){
-		return view('pages.contact');
+		$tagfoot = Tag::all();
+		return view('pages.contact')->withTagfoot($tagfoot);
 	}
 	public function postContact(Request $request){
 
