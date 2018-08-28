@@ -147,6 +147,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Laravel Extension Providers...
@@ -183,6 +184,7 @@ return [
         'File'      => Illuminate\Support\Facades\File::class,
         'Gate'      => Illuminate\Support\Facades\Gate::class,
         'Hash'      => Illuminate\Support\Facades\Hash::class,
+        'Image'     => Intervention\Image\Facades\Image::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
         'Lang'      => Illuminate\Support\Facades\Lang::class,
         'Log'       => Illuminate\Support\Facades\Log::class,

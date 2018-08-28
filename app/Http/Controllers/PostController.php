@@ -11,6 +11,7 @@ use App\Category;
 use App\Tag;
 use Session;
 use Purifier;
+use Image;
 
 class PostController extends Controller
 {
@@ -66,6 +67,24 @@ class PostController extends Controller
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
         $post->body = Purifier::clean($request->body);
+
+        //save featured image
+        if ($request->hasFile('featured_image')) {
+            $file_uploaded = $request->featured_image;
+            $extensions = array('jpg', 'JPG', 'png' ,'PNG' ,'jpeg' ,'JPEG', 'GIF','gif');
+            $isImage = $file_uploaded->getClientOriginalExtension();
+            if (in_array($isImage , $extensions)){
+                $filename = time().'.'.$isImage;
+                $thumbname = time().'x150'.'.'.$isImage;
+                $location = public_path('images\\'.$filename);
+                $thumb_location = public_path('images\\thumbs\\'.$thumbname);
+                Image::make($file_uploaded)->resize(null, 500, function ($constraint) { $constraint->aspectRatio();})->save($location);
+                Image::make($file_uploaded)->resize(null, 150, function ($constraint) { $constraint->aspectRatio();})->crop(150, 150)->save($thumb_location);
+                $post->featured_image = $filename;
+                $post->thumbnail = $thumbname;
+            }
+        }
+
 
         $post->save();
 
