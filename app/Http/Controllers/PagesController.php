@@ -17,8 +17,9 @@ class PagesController extends Controller {
 	public function getHome(){
 		$categorylist = Category::all();
 		$posts = Post::orderBy('created_at', 'desc')->paginate(6);
+		$postsall = Post::orderBy('id', 'desc')->get();
 		$tagfoot = Tag::all();
-		return view('pages.index')->withPosts($posts)->withTagfoot($tagfoot)->withCategorylist($categorylist);
+		return view('pages.index')->withPosts($posts)->withTagfoot($tagfoot)->withCategorylist($categorylist)->withPostsall($postsall);
 	}
 	public function getAbout(){
 		$categorylist = Category::all();
