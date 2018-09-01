@@ -38,7 +38,7 @@
              @if(!empty($post->featured_image))
             <div class="s-content__media col-full">
                 <div class="s-content__post-thumb">
-                    <img src="{{ asset('images/'.$post->featured_image) }}"  alt="" >
+                    <img src="{{ asset('images/'.$post->featured_image) }}"  sizes="(max-width: 2000px) 100vw, 2000px" alt="" >
                 </div>
             </div> <!-- end s-content__media -->
             @endif
@@ -78,15 +78,15 @@
                 <div class="s-content__pagenav">
                     <div class="s-content__nav">
                         <div class="s-content__prev">
-                            <a href="#0" rel="prev">
+                            <a href="{{ !empty($prev) ? route('blog.single', $prev->slug) : "" }}" rel="prev">
                                 <span>Previous Post</span>
-                                Tips on Minimalist Design 
+                                {{ !empty($prev) ? $prev->title : "" }}
                             </a>
                         </div>
                         <div class="s-content__next">
-                            <a href="#0" rel="next">
+                            <a href="{{ !empty($next) ? route('blog.single',$next->slug) : "" }}" rel="next">
                                 <span>Next Post</span>
-                                Less Is More 
+                                {{ !empty($next) ? $next->title : "" }}
                             </a>
                         </div>
                     </div>

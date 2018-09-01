@@ -23,9 +23,11 @@ class BlogController extends Controller
     	//fetch post with slug from db
         $tagfoot = Tag::all();
     	$post= Post::where('slug', '=', $slug)->first(); //first is like limit 1
+        $prev = Post::where('id', '<', $post->id)->orderBy('id', 'desc')->first();;
+        $next = Post::where('id', '>', $post->id)->orderBy('id', 'desc')->first();
 
     	//return the view and pass in the post 
-    	return view('blog.single')->withPost($post)->withTagfoot($tagfoot)->withCategorylist($categorylist);
+    	return view('blog.single')->withPost($post)->withTagfoot($tagfoot)->withCategorylist($categorylist)->withPrev($prev)->withNext($next);
     }
 
     public function getList($name){
